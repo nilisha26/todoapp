@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/blocs/blocs_export.dart';
 import 'package:todolist/screens/recycle_bin.dart';
+import 'package:todolist/screens/summary.dart';
 import 'package:todolist/screens/tabs_screen.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -46,6 +47,21 @@ class MyDrawer extends StatelessWidget {
                     leading: const Icon(Icons.delete),
                     title: const Text('Bin'),
                     trailing: Text('${state.removedTasks.length}'),
+                  ),
+                );
+              },
+            ),
+            const Divider(),
+            BlocBuilder<TasksBloc, TasksState>(
+              builder: (context, state) {
+                return GestureDetector(
+                  onTap: () => Navigator.of(context).pushReplacementNamed(
+                    SummaryScreen.id,
+                  ),
+                  child: const ListTile(
+                    leading: Icon(Icons.delete),
+                    title: Text('Summary'),
+                    // trailing: Text('${state.removedTasks.length}'),
                   ),
                 );
               },

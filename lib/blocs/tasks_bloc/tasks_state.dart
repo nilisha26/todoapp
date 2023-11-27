@@ -4,7 +4,6 @@ class TasksState extends Equatable {
   final List<Task> pendingTasks;
   final List<Task> completedTasks;
   final List<Task> allTasks;
-
   final List<Task> removedTasks;
 
   const TasksState({
